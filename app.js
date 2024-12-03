@@ -4,20 +4,20 @@ const port = process.env.PORT || 3001;
 
 const pokemons = {
   pokemons: [
-    { pokemon: "Pikachu", evolution: null },
-    { pokemon: "Caterpie", evolution: "Metapod > Butterfree" },
-    { pokemon: "Pidgeotto", evolution: "Pidgeot" },
-    { pokemon: "Bulbasaur", evolution: null },
-    { pokemon: "Charmander", evolution: "Charmeleon > Charizard" },
-    { pokemon: "Squirtle", evolution: null },
-    { pokemon: "Krabby", evolution: "Kingler" },
-    { pokemon: "Primeape", evolution: null },
-    { pokemon: "Muk", evolution: null },
-    { pokemon: "Tauros", evolution: null },
+    { pokemon: "Pikachu" },
+    { pokemon: "Caterpie" },
+    { pokemon: "Pidgeotto" },
+    { pokemon: "Bulbasaur" },
+    { pokemon: "Charmander" },
+    { pokemon: "Squirtle" },
+    { pokemon: "Krabby" },
+    { pokemon: "Primeape" },
+    { pokemon: "Muk" },
+    { pokemon: "Tauros" },
   ],
 };
 
-const nome_pokemons = pokemons.pokemons.map((pok) => {
+const arr = pokemons.pokemons.map((pok) => {
   return pok.pokemon;
 });
 
@@ -40,7 +40,18 @@ app.get("/tico", (req, res) => {
 });
 
 app.get("/pokemons", (req, res) => {
-  res.type("html").send(`<li>${nome_pokemons.forEach((um_pok) => {return um_pok})}</li>`);
+  res.type("html").send(
+    `<li>${arr[0]})}</li>`
+    `<li>${arr[1]})}</li>`
+    `<li>${arr[2]})}</li>`
+    `<li>${arr[3]})}</li>`
+    `<li>${arr[4]})}</li>`
+    `<li>${arr[5]})}</li>`
+    `<li>${arr[6]})}</li>`
+    `<li>${arr[7]})}</li>`
+    `<li>${arr[8]})}</li>`
+    `<li>${arr[9]})}</li>`
+  );
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
