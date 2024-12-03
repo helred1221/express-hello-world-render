@@ -2,18 +2,48 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
 
-app.use(express.json())
-app.use(express.urlencoded({extended: true}));
+const pokemons = {
+  pokemons: [
+    { pokemon: "Pikachu", evolution: null },
+    { pokemon: "Caterpie", evolution: "Metapod > Butterfree" },
+    { pokemon: "Pidgeotto", evolution: "Pidgeot" },
+    { pokemon: "Bulbasaur", evolution: null },
+    { pokemon: "Charmander", evolution: "Charmeleon > Charizard" },
+    { pokemon: "Squirtle", evolution: null },
+    { pokemon: "Krabby", evolution: "Kingler" },
+    { pokemon: "Primeape", evolution: null },
+    { pokemon: "Muk", evolution: null },
+    { pokemon: "Tauros", evolution: null },
+  ],
+};
 
-app.get("/", (req, res) => res.type('html').send(html));
+pokemons.pokemons.forEach((pok) => {
+  console.log(pok);
+});
 
-app.get('/req', (req, res) => {
-    console.log("Just got a request!")
-    res.send('Yo!')
-})
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.get("/", (req, res) => res.type("html").send(html));
+
+app.get("/req", (req, res) => {
+  console.log("Just got a request!");
+  res.send("Yo!");
+});
+
+app.get("/meunome", (req, res) => {
+  res.send("Meu nome é Helder Gabriel da Silva Pereira");
+});
+
+app.get("/tico", (req, res) => {
+  res.send("teco");
+});
+
+app.get("/pokemons", (req, res) => {
+  res.json();
+});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
-
 
 const html = `
 <!DOCTYPE html>
@@ -64,4 +94,4 @@ const html = `
     </section>
   </body>
 </html>
-`
+`;
