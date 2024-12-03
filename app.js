@@ -38,7 +38,7 @@ app.get("/tico", (req, res) => {
 app.get("/pokemons", (req, res) => {
   res.json(
     pokemons.pokemons.map((pok) => {
-      return pok;
+      return pok.pokemon;
     })
   );
 });
