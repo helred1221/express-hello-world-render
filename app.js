@@ -17,6 +17,10 @@ const pokemons = {
   ],
 };
 
+const nome_pokemons = pokemons.pokemons.map((pok) => {
+  return pok.pokemon;
+});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -36,11 +40,7 @@ app.get("/tico", (req, res) => {
 });
 
 app.get("/pokemons", (req, res) => {
-  res.json(
-    pokemons.pokemons.map((pok) => {
-      return pok.pokemon;
-    })
-  );
+  res.type("html").send(`<li>${nome_pokemons.forEach((um_pok) => {return um_pok})}</li>`);
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
