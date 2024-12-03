@@ -17,10 +17,6 @@ const pokemons = {
   ],
 };
 
-const arr = pokemons.pokemons.map((pok) => {
-  return pok.pokemon;
-});
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -45,6 +41,17 @@ app.get("/pokemons", (req, res) => {
       return pokemon.pokemon;
     })
   );
+});
+
+app.post('/series', (req, res) => {
+
+  const series = [
+    "Arcane",
+    "Dandadan",
+    "Supernatural"
+  ];
+
+  res.json(series);
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
