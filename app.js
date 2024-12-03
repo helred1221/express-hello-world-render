@@ -40,17 +40,10 @@ app.get("/tico", (req, res) => {
 });
 
 app.get("/pokemons", (req, res) => {
-  res.type("html").send(
-    `<li>${arr[0]})}</li>`
-    `<li>${arr[1]})}</li>`
-    `<li>${arr[2]})}</li>`
-    `<li>${arr[3]})}</li>`
-    `<li>${arr[4]})}</li>`
-    `<li>${arr[5]})}</li>`
-    `<li>${arr[6]})}</li>`
-    `<li>${arr[7]})}</li>`
-    `<li>${arr[8]})}</li>`
-    `<li>${arr[9]})}</li>`
+  res.json(
+    pokemons.pokemons.map((pokemon) => {
+      return pokemon.pokemon;
+    })
   );
 });
 
