@@ -17,8 +17,6 @@ const pokemons = {
   ],
 };
 
-
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -38,7 +36,11 @@ app.get("/tico", (req, res) => {
 });
 
 app.get("/pokemons", (req, res) => {
-  res.json(pokemons);
+  res.json(
+    pokemons.pokemons.map((pok) => {
+      return pok;
+    })
+  );
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
